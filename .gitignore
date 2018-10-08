@@ -25,4 +25,3 @@
 .DS_Store
 **/.tmp
 init-babel-user.lisp
-/grammars/English/lexicon
