@@ -1,40 +1,60 @@
-# Babel2
+# Assignment 1: The Basic Naming Game
 
-**NOTE**: This is not the full release of Babel2. This repository is meant for educational purposes. It is used in the course 'Artificial Intelligence Programming Paradigms', taught by Prof. Dr. Katrien Beuls at Vrije Universiteit Brussel. The full release of Babel2 can be found [here](https://github.com/EvolutionaryLinguisticsAssociation/Babel2).
+## Description
 
-Babel2 is a general framework for implementing and running your agent-based experiments, both in a simulated environment or embodied in grounded robots. It connects our core technologies such as [Fluid Construction Grammar](www.fcg-net.org) and Incremental Recruitment Language (IRL) with mechanisms for multi-agent interactions, robotic embodiment, cognitive processing and learning. An extensive monitoring system opens up every detail of Babel2’s intermediate representations and underlying dynamics. A modular design ensures that the system can be used in a wide variety of scenarios. It is therefore possible to use each component individually, according to your needs.
+In this assignment, you have to implement a basic Naming Game as explained in class. We first give a short summary of the basic Naming Game.
 
-Babel2 is written in Common Lisp and runs in most major Lisp implementations ([CCL](https://ccl.clozure.com), [SBCL](http://www.sbcl.org) and [LispWorks (excluding Personal Edition)](http://www.lispworks.com)) on all major platforms (Linux, Mac OS X, Windows). Its source code is frequently released to the public under the Apache 2.0 License. We recommend using the [Emacs editor with SLIME](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Emacs-with-Lisp) or [Sublime Text with additional packages](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Sublime-Text-with-Lisp) for Babel development.
+In the basic Naming Game, the world can be implemented as a list of symbols, e.g. `obj-1`. The context is a random subset of the world. The population is a list of agents. An agent should be able to build up and maintain a lexicon of names for the symbols of the world. Agents need to be able to pick a random topic from the context and they can point to the topic. Pointing, in this context, means to transfer the chosen symbol from speaker agent to hearer agent. A word in the lexicon always consists of two sides: a meaning (in this case a symbol) and a form (in this case a random string). A word also has a score. The endpoint of your experiment should be a population of agents with a shared lexicon of minimal size (i.e. without synonymy). So, if there are $N$ objects (symbols) in the world, the population should converge to a shared lexicon of $N$ names.
 
-The best place for Babel2 and FCG discussion is [the mailing list](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Mailing-List). 
+You will experiment with different parameters and alignment strategies as explained in class. Implement the **lateral inhibition** strategy and **at least one other** alignment strategy. 
 
-**Please note** that this repository contains only the public release of the Babel2 package. Our team works on another, private repository. We aim to release new functionality on a regular basis.
+In your experiment, you should be able to easily play around with the following parameters:
 
-## Installation
+ - Number of agents in the population
+ - Number of objects in the world
+ - The alignment strategy
+ - Parameters of the chosen alignment strategies, e.g. increment/decrement of scores for lateral inhibition.
 
-### Mac OS X or Linux
+You should graphically measure (at least) the following:
 
-Installation scripts are provided for both [Linux](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Installation-Script) and [Mac OS](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Installation-Script). These scripts will install all necessary tools for you to get started with Babel2 development.
+ - Communicative success
+ - Average lexicon size
+ - Form-meaning competition
+ - Meaning-form competition
 
-If you don't want to install a Lisp environment by using the provided scripts, you can follow these instructions for [Linux](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Installing-Babel2-on-Linux) or [Mac OS](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Installing-Babel2-on-Mac-OS-X).
+Optionally, you can define additional measures:
 
-### Windows
+ - Lexicon coherence
+ - Frequency of lexicon change
+ - Number of forms per meaning
 
-Currently, we do not have an installation script for Windows. This is work in progress. For now, you will have to set up a Lisp environment yourself. You can install everything manually in [Windows](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki/Windows-Installation).
+## Technical
 
-## Getting Started
+Your implementation should be written in Common Lisp as it is defined in the Hyperspec. Additionally, you will use the Babel2 multi-agent experiment framework. A manual about the Babel2 framework will be made available on Canvas.
 
-The [FCG cookbook](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/wiki) is a dynamic document hosting practical recipes for learning about common problems and solutions in the Babel2 framework. This ranges from installation and Lisp editing tools, over writing constructions to more advanced topics such as setting up your own FCG server, creating a web demonstration, etc.
+Each student will have their own private Git repository, through GitHub Classroom. Starter code for the basic Naming Game will be provided in this repository. You can commit and push your changes to this repository anytime you want. Use proper version control standards, such as descriptive commit messages. The last commit before the deadline counts as the final version of your assignment.
 
-A good starting point for learning Fluid Construction Grammar is the article "Basics of Fluid Construction Grammar" by Luc Steels, published in _Constructions and Frames 9(2)_. You can download a draft of the article [here](https://www.fcg-net.org/wp-content/uploads/papers/basics-of-fcg.pdf). The web demonstration that supports the article is available [here](https://www.fcg-net.org/demos/basics-of-fcg/).
+## Report
 
-We regularly organise tutorials on Babel2. Please check [our events page](http://fcg-net.org/events).
+Write a short paper (max. 5 pages) that adheres to academic standards. In other words, it should contain an abstract, an introduction, a conclusion and references. Explain in your own words what a Naming Game is. Highlight the most important features of the strategies you experimented with. Describe your experiments and their results through the graphs that you created.
 
-## Contributing to Babel2
+Add this report, in .pdf format, to your Git repository.
 
-Feel free to contribute to the Babel2 package! There are 2 ways to do so:
+## Evaluation
 
- 1. Reporting problems by creating an issue
- 2. Extending Babel2 using a pull request
+The following criteria will be used to grade your assignment:
 
-You can find more information in the [CONTRIBUTING](https://github.com/EvolutionaryLinguisticsAssociation/Babel2/blob/master/CONTRIBUTING.md) file.
+ - Do the agents reach full communicative success (100%)?
+ - Is the lexicon size optimised?
+ - Is the code conform to a good programming style?
+ - Does the report conform to academic standards?
+
+Note that this is an **individual** assignment. Any form of plagiarism will result in a score of 0.
+
+## Questions
+
+General questions concerning the basic Naming Game, Common Lisp, Emacs or the use of the Babel2 framework can be posted on the **Canvas discussion forum**. We urge you to post your questions there such that all students have access to the same information. If you have any other questions, please send us an email **through Canvas.**
+
+## Deadline
+
+**Friday October 19th 2018, 11pm**
