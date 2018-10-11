@@ -19,14 +19,13 @@ You should graphically measure (at least) the following:
 
  - Communicative success
  - Average lexicon size
- - Form-meaning competition
- - Meaning-form competition
+ - Average lexicon coherence
 
 Optionally, you can define additional measures:
 
- - Lexicon coherence
  - Frequency of lexicon change
- - Number of forms per meaning
+ - Average number of forms per meaning
+ - Average meaning-form competition
 
 ## Technical
 

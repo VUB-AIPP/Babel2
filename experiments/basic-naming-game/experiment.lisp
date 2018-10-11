@@ -19,6 +19,7 @@
   ;; Initialize parameters of the experiment, e.g.
   ;; creating a population of agents or
   ;; defining the world of the experiment
+  (format t "~%Initializing bng-experiment")
   )
 
 ;;;; With Babel2, you can define 'configuration-default-values'

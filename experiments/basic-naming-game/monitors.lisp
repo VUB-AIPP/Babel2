@@ -4,13 +4,15 @@
 ;;;; and event handlers. Some events are already
 ;;;; pre-defined such as 'interaction-started',
 ;;;; 'interaction-finished' and 'interacting-agents-determined'.
-;;;; These are notified in 'run-interaction'. There you can
-;;;; see what variables are available for use in the
-;;;; event handlers.
+;;;; These are notified in 'run-interaction'. In the event-handlers
+;;;; the experiment and the interaction are available for use.
 
 ;;;; Recording, displaying and exporting communicative success
 ;;;; is given as an example. The event handler triggers on the
 ;;;; interaction-finished event.
+
+;;;; Use similar monitors for lexicon size, lexicon coherence,
+;;;; frequency of lexicon change and number of forms per meaning.
 
 ;;;; For more information on monitors and how to use them, we
 ;;;; refer to Section 3 in the Babel2 manual.

@@ -2,12 +2,28 @@
 (ql:quickload :basic-naming-game)
 (in-package :basic-naming-game)
 
+;;;; To test your experiment manually, we make an instance of it.
+;;;; This instance will have all the default parameter configurations.
+;;;; You can add configurations through the :configurations keyword.
+
+(defparameter *experiment*
+  (make-instance 'bng-experiment
+                 :configurations '((:population-size . 10))))
+
 ;;;; To run a single interaction, use #'run-interaction
+
+(run-interaction *experiment*)
+
 ;;;; To run a series of interactions, use #'run-series
+
+(run-series *experiment* 10)
+
 ;;;; To run multiple series of interactions, use #'run-batch
+
+(run-batch *experiment* 10 2)
+
 ;;;; To run multiple series of interactions for different
 ;;;; configurations, you can use #'run-batch-for-different-configurations
-
 ;;;; Additionally, we provide the helper functions to easily
 ;;;; run and store batches for different configurations. These are
 ;;;; defined in 'run-helpers.lisp'.

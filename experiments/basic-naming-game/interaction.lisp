@@ -30,13 +30,16 @@
 (defmethod interact :before ((experiment bng-experiment) interaction &key)
   ;; Do stuff before an interaction, e.g.
   ;; preparing the agents of the interaction
+  (format t "~%Interaction before")
   )
 
 (defmethod interact ((experiment bng-experiment) interaction &key)
   ;; Implement the interaction script here
+  (format t "~%Interaction")
   )
 
 (defmethod interact :after ((experiment bng-experiment) interaction &key)
   ;; Do stuff after an interaction, e.g.
   ;; the lexicon alignment mechanism
+  (format t "~%Interaction after")
   )
