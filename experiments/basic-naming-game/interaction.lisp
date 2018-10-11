@@ -7,6 +7,8 @@
 ;;;; following slots:
 ;;;; experiment, interaction-number, interacting-agents and
 ;;;; communicated-successfully.
+;;;; The experiment framework is described in Section 4 in the
+;;;; Babel2 Manual
 
 ;;;; Overload the 'interact' method to implement the interaction
 ;;;; script. The interact method will be called when running an

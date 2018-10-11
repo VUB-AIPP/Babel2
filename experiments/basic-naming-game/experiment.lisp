@@ -5,6 +5,10 @@
 ;;;; experiment class, found in the experiment-framework.
 ;;;; This class already has the following slots:
 ;;;; id, agents, series-number, world, interactions
+;;;; To inspect the experiment class, use the M-. (meta dot)
+;;;; key-binding.
+;;;; The experiment framework is described in Section 4 in the
+;;;; Babel2 Manual
 
 (defclass bng-experiment (experiment)
   ( ;; Define additional slots here

@@ -2,9 +2,9 @@
 
 ;;;; Use this file to define your monitors
 ;;;; and event handlers. Some events are already
-;;;; pre-defined such as interaction-started,
-;;;; interaction-finished and interacting-agents-determined.
-;;;; These are notified in 'run-interaction'. Here you can
+;;;; pre-defined such as 'interaction-started',
+;;;; 'interaction-finished' and 'interacting-agents-determined'.
+;;;; These are notified in 'run-interaction'. There you can
 ;;;; see what variables are available for use in the
 ;;;; event handlers.
 
@@ -13,7 +13,7 @@
 ;;;; interaction-finished event.
 
 ;;;; For more information on monitors and how to use them, we
-;;;; refer to the Babel2 manual.
+;;;; refer to Section 3 in the Babel2 manual.
 
 (define-monitor record-communicative-success
                 :class 'data-recorder
@@ -44,3 +44,8 @@
 (define-event-handler (record-communicative-success interaction-finished)
                       (record-value monitor
                                     (if (communicated-successfully interaction) 1 0)))
+
+
+;;;; When recording meaning-form competition, use an alist-recorder
+;;;; and an alist-gnuplot-graphic-generator.
+;;;; See Section 3.2.5 in the Babel2 Manual.

@@ -4,5 +4,5 @@
 ;;;; This includes functions for adding things to the
 ;;;; lexicon, finding things in the existing lexicon
 ;;;; or updating scores.
-;;;; There is a utility function for creating word
+;;;; TIP: There is a utility function for creating word
 ;;;; forms with random syllables: #'make-new-word

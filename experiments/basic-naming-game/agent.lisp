@@ -7,6 +7,9 @@
 ;;;; already has the following slots:
 ;;;; experiment, id, discourse-role, utterance and
 ;;;; communicated-successfully
+;;;; To inspect the agent class, use the M-. (meta dot) key-binding
+;;;; The experiment framework is described in Section 4 in the
+;;;; Babel2 Manual
 
 (defclass bng-agent (agent)
   ( ;; Give your bng-agent additional slots here, such as lexicon

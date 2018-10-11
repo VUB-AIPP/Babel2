@@ -103,3 +103,18 @@
                         collect `("experiments" "basic-naming-game" "raw-data" ,experiment-name ,measure-name)))
     :plot-directory '("experiments" "basic-naming-game" "graphs")
     :error-bars :stdev))
+
+;;;; To create competition graphs, we provide the following helper function.
+;;;; This function also takes a list of keys and values for passing on the
+;;;; experiment parameters, e.g. ((:population-size . 10) ...)
+
+(defun create-competition-graph (&key 
+                                 (configurations nil)
+                                 (nr-of-interactions 2000))
+  (format t "~%Running ~a experiments in order to create a
+  competition graph. Please be patient." nr-of-interactions)
+  (activate-monitor name-of-your-competition-monitor)  ;; change this into the name of your alist recorder monitor
+  (run-batch 'bng-experiment nr-of-interactions 1
+             :configuration (make-configuration :entries configurations))
+  (deactivate-monitor name-of-your-competition-monitor)  ;; change this into the name of your alist recorder monitor
+  (format t "~%Graphs have been created"))
