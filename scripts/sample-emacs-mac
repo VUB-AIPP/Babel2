@@ -1,0 +1,132 @@
+;;; -*- emacs-lisp -*-
+
+(setenv "LANG" "en_US.UTF-8")
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
+;; CHANGE YOUR PATH TO SLIME HERE
+(add-to-list 'load-path "~/slime")
+
+(require 'slime)
+(slime-setup '(slime-repl slime-autodoc slime-fancy-inspector))
+
+;; CHANGE YOUR PATH TO THE CCL EXECUTABLE HERE
+;; PREFERABLY 64-BIT CCL
+(setq inferior-lisp-program "~/ccl/dx86cl64")
+(command-execute 'slime)
+
+;; CHANGE YOUR PATH TO 'slime-extensions'
+;; (default: ~/Babel2/libraries/slime-extensions)
+(setf slime-extensions-path "~/Babel2/libraries/slime-extensions")
+
+;;; ---- ALL FOLLOWING SETTINGS DO NOT NEED TO BE ADAPTED ----
+
+;; Load the babel-mode / slime-extensions configurations ... also an emacs
+;; customization group in "Programming/"
+(add-to-list 'load-path slime-extensions-path)
+(require 'slime-extensions-config)
+
+;; Due to complications in the auto-complete-config this needs
+;; to be executed after babel-mode-config, but before
+;; custom-set-variables!
+(add-to-list 'load-path (concat slime-extensions-path "/utils/ac"))
+(require 'auto-complete-config)
+
+(custom-set-variables
+ ;; Set the base-path to slime-extensions
+ '(se-base-path slime-extensions-path)
+ ;; Use slime-extensions settings to configure auto-completion
+ ;; This affects the following block of settings:
+ ;; --------------------
+ '(se-use-custom-ac-config t)
+ ;; Use slime-ac in all lisp-modes (t) or only in babel-mode (nil)
+ '(se-use-sources-in-lisp-modes t)
+ ;; Use the standard ac-modes (e.g. other programming languages)
+ '(se-use-standard-ac-modes nil)
+ ;; Enables auto-complete for these additional major modes...
+ '(se-add-to-ac-modes (quote (lisp-mode babel-mode lisp-interaction-mode inferior-lisp-mode)))
+ ;; Major modes slime-fed auto-complete can run on
+ '(se-slime-ac-modes (quote (lisp-mode babel-mode lisp-interaction-mode inferior-lisp-mode)))
+ ;; Set ac-sources that are used in all major-modes...
+ ;'(se-global-ac-sources (quote (ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers ac-source-words-in-all-buffer)))
+ ;; Define custom ac-sources...
+ ;'(se-slime-ac-sources (quote (ac-source-dictionary ac-source-files-in-current-dir ac-source-features ac-source-functions ac-source-variables ac-source-yasnippet ac-source-symbols ac-source-slime)))
+ ;; --------------------
+ ;; Show line-numbers in every file?
+ '(se-global-line-numbers t)
+ ;; Highlight parentheses permanently?
+ '(se-cparen-lisp-modes t)
+ ;; General settings:
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil)
+ '(transient-mark-mode t)
+ '(column-number-mode t)
+ '(indent-tabs-mode nil)
+ '(make-backup-files nil)
+ '(cua-mode t nil (cua-base))
+ '(global-font-lock-mode t)
+ '(make-backup-files nil)
+ '(mouse-wheel-progressive-speed nil)
+ '(speedbar-activity-change-focus-flag t))
+
+;; This actually loads the slime-extensions...
+(require 'slime-extensions)
+
+;; Don't show the emacs default start screen
+(setq inhibit-splash-screen t)
+
+(set-face-foreground 'font-lock-string-face "navy")
+
+(setq mac-allow-anti-aliasing t)
+(require 'mac-key-mode)
+(mac-key-mode 1)
+(pc-selection-mode 1)
+(setq mac-option-modifier 'meta)
+
+;;LISP editing tweaks
+(auto-insert-mode t)
+
+;; syntax highlighting (colors)
+(font-lock-mode 1)
+
+;; selection highlighting for region selection
+(transient-mark-mode 1)
+
+;; show matching parenthesis
+(show-paren-mode 1)
+
+;; highlight the whole expression (as opposed to just the 'parenthesis)
+(setq show-paren-style 'parenthesis)
+
+;; make the background of the highlighting more visible...
+'(show-paren-match ((((class color) (background light)) (:background "azure2"))))
+
+(global-set-key (kbd "M-<up>") 'backward-up-list)
+(global-set-key (kbd "M-<down>") 'down-list)
+(global-set-key (kbd "M-<left>") 'backward-sexp)
+(global-set-key (kbd "M-<right>") 'forward-sexp)
+
+(set-face-foreground 'slime-repl-output-face "navy")
+(set-face-foreground 'font-lock-string-face "RoyalBlue4")
+
+(global-set-key "\C-cs" 'slime-selector)
+
+(setq initial-frame-alist 
+  '((top . 22) (left . 725) (width . 113) (height . 62)
+    (active-alpha . 1.0)  ;; active frame
+    (inactive-alpha . 0.95) ;; non active frame
+    (minibuffer . t) (autoraise . t)
+    (font . "Monaco")))
+
+(make-frame 
+ '((top . 22) (left . 0) (width . 115) (height . 59)
+   (active-alpha . 1.0) (inactive-alpha . 0.95)
+   (minibuffer . t) (autoraise . t)
+   (font . "Monaco")))
+  
+(setq default-frame-alist 
+  '((top . 22) (left . 135) (width . 125) (height . 63)   
+    (active-alpha . 1.0)  ;; active frame
+    (inactive-alpha . 0.95) ;; non active frame
+    (font . "Monaco")))
