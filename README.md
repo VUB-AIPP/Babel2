@@ -56,4 +56,4 @@ General questions concerning the basic Naming Game, Common Lisp, Emacs or the us
 
 ## Deadline
 
-**Friday October 19th 2018, 11pm**
+**Friday October 19th 2018, 12pm (noon)**
