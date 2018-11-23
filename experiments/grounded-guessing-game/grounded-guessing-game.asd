@@ -12,8 +12,7 @@
   :serial t
   :components
   ((:file "package")
-   (:file "utils")
-   (:file "world")
+   (:file "ontology")
    (:file "lexicon")
    (:file "agent")
    (:file "experiment")
