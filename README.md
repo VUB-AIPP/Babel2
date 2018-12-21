@@ -1,68 +1,37 @@
-# Assignment 3: The Grounded Guessing Game
+# AIPP Final Project
 
-## Description
+For the final assignment, you can choose between three projects. These are described later on in this document. For each project, we provide an initial proposal, but there is plenty of room for your own ideas and contributions and additional content. We do encourage this!
 
-In this assignment, you have to implement a Grounded Guessing Game as explained in class and in Chapter 9 of Loetzsch (2014). We will again focus on **single words for single categories**. Furthermore, the agents will observe the scene from the same perspective, so there is no perceptual deviation. You can earn **bonus points** when implementing the game with perceptual deviation (see later).
+On the practical side, we note that you **do not** have to deliver a report of your project. Instead, during the exam, you will give an **oral presentation** of your project. The deadline of your project is **15th of January 2019**. This is one week before the oral exam. You **do not** have to submit your presentation together with the project itself, so you can still work on your presentation between the deadline of the project and the exam date. The exam itself takes place on **22th of January, 2019**. Time slots have been made available in the calendar application on Canvas.
 
-To represent the agent's categories, you can choose one of the representations used in the book: discrimination trees or prototypes. **Motivate this decision in your report.** 
+During the exam, you will get **15min** to present your project and **15min** of questions. During this presentation, we expect you to briefly sketch the context of your project. Afterwards, explain your approach, motivate your decisions and interpret your results. Feel free to highlight your own contributions or additional content you added. You will receive questions on your project itself and how you can position the project within the broader scope of the course.
 
-The starter code will contain a dataset of scenes, captured using the QRIO robot. To load these scenes, you can make use of the `physical-robot-world` package, which you can find in the `Babel2/sharing` directory. The package contains a README file on how to use it.
+Please notify us of your choice of project **as soon as possible**, especially when using the Nao robot. If you have questions about any of the projects or any of the Babel2 frameworks you want to use, do not hesitate to **send an e-mail** or **make an appointment**. Now, we introduce the project proposals.
 
-As with the previous assignments, you need to experiment with different parameters. In your code, you should be able to easily play around with the following parameters using configurations:
+## Robot Colour Naming Game
 
- - Number of agents in the population
- - Number of objects in the context (random, fixed or increasing over time)
- - Parameter(s) of the lateral inhibition alignment strategy
- - Parameter(s) of the category shift (we call this $\alpha$), when using prototypes
- - Parameter(s) of the decision tree
+In this project, you will implement a grounded colour naming game using the Nao robot. The agents in your experiment will experience the scene from the same perspective. They will use prototypes to represent the colours of the objects they see. 
 
-You should graphically measure the following:
+**Additional content:**
 
- - Discriminative success
- - Communicative success
- - Communicative success given discriminative success
- - Ontology size
- - Lexicon size
- - Lexicon coherence
- - Frequency of lexicon change
- - Number of forms per meaning
- - Number of meanings per form
- - Form competition for a single meaning
- - Meaning competition for a single form
+ - Make it easy to follow the interactions of your experiment by using the Babel2 web-interface.
+ - Use additional Babel2 frameworks such as action-behaviour-framework, meta-layer-learning or tasks-and-processes.
+ - Implement perceptual deviation, using 2 Nao robots.
+ - Enable the use of more features, such as width, height, x- and y-position, etc.
 
-### Bonus Points
+## Flexible Word Meanings
 
-You can earn bonus points by implementing perceptual deviation. If you decide to implement this, make sure that it is easy to switch on and off by using a configuration of the experiment. Describe the effects of perceptual deviation in your report.
+Go beyond single-word-single-meaning games and implement the flexible word meaning experiments, both in a simulated setting (based on Chapter 6) and a grounded setting (based on Chapter 10). For the latter, you will again use the QRIO data.
 
-## Technical
+**Additional content:**
 
-Your implementation should be written in Common Lisp as it is defined in the Hyperspec. Additionally, you will use the Babel2 multi-agent experiment framework. A manual about the Babel2 framework is available on Canvas.
+ - Make it easy to follow the interactions of your experiment by using the Babel2 web-interface.
+ - Use additional Babel2 frameworks such as action-behaviour-framework, meta-layer-learning or tasks-and-processes.
 
-Each student will have their own private Git repository, through GitHub Classroom. You can commit and push your changes to this repository anytime you want. Use proper version control standards, such as descriptive commit messages. The last commit before the deadline counts as the final version of your assignment.
+## Procedural Semantics for QRIO data
 
-_Tip:_ Check out the Lisp style guide on Canvas, under 'Pages'.
+Explore procedural semantics and implement a number of primitive operations in IRL. Both the ontology and names of primitive operations will be given. These primitives should work on the QRIO data. With these primitives, you must be able to execute an IRL program on a scene. Also, you must be able to find a discriminating IRL program for a topic, using the IRL composer. Implement an evaluation system that will test this for all scenes in the dataset.
 
-## Report
+**Additional content:**
 
-Write a short paper (max. 5 pages) that adheres to academic standards. In other words, it should contain an abstract, an introduction, a conclusion and proper references. Explain in your own words what a Grounded Guessing Game is. Highlight the most important features of the strategies you experimented with. Describe your experiments and interpret their results through the graphs that you created. When creating graphs, make sure to use the appropriate x-axis: total number of interactions or interactions per agent. **Add this report, in .pdf format, to the root of your Git repository.**
-
-_Tip:_ Check out the document on academic writing on Canvas, under 'Pages'.
-
-## Evaluation
-
-The following criteria will be used to grade your assignment:
-
- - Do the agents reach full communicative success (100%)?
- - Is the lexicon size optimised?
- - Is the code conform to a good programming style?
- - Does the report conform to academic standards?
-
-Note that this is an **individual** assignment. Cooperation is not allowed. Any form of code reuse without citing the source and any form of code exchange between students will be considered plagiarism. This will be santioned according to the rules of the exam commission.
-
-## Questions
-
-General questions concerning the Grounded Guessing Game, Common Lisp, Emacs or the use of the Babel2 framework can be posted on the **Canvas discussion forum**. We urge you to post your questions there such that all students have access to the same information. If you have any other questions, please send us an email **through Canvas.**
-
-## Deadline
-
-**Friday December 14th 2018, noon**
+ - Make it easy to follow your evaluation system by using the Babel2 web-interface.
