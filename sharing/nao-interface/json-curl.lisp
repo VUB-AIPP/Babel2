@@ -3,6 +3,7 @@
 
 ;; + http-request using drakma +
 
+#|
 (defun make-json (action &key (data (list)))
   "Encode json given an action and optional data. Data must be a-list"
   (encode-json-to-string `((action . ,action) (data ,@data))))
@@ -38,4 +39,5 @@
   "Get a key from the JSON response"
   (when (assoc key response)
     (rest (assoc key response))))
+|#
 

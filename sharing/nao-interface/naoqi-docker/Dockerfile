@@ -1,6 +1,5 @@
-# Using Ubuntu 17.04 as specified by the NAOqi docs
-FROM ubuntu:17.04
-MAINTAINER https://twitter.com/MODatUniSA
+# Using Ubuntu 17.10
+FROM ubuntu:17.10
 
 # Install pip
 RUN apt-get update && apt-get install -y python-pip
