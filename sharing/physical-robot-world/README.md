@@ -69,7 +69,7 @@ Common Lisp interface to the robotdata repository.
 
 ### Other functions
 
- - `physical-robot-interpret-pointing`; interprets a pointing gesture in a robot's own coordinate system. X and Y are the coordinates of the object pointed to in the coordinate system of the pointer. Returns the ID of the closest object to the position of the coordinates. Only to be used 
+ - `physical-robot-interpret-pointing`; interprets a pointing gesture in a robot's own coordinate system. X and Y are the coordinates of the object pointed to in the coordinate system of the pointer. Returns the ID of the closest object to the position of the coordinates. Only to be used when perceptual deviation is involved.
 
 ## How to use
 
